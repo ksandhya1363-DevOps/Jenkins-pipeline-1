@@ -1,5 +1,8 @@
 pipeline{
-    agent any
+   // agent any
+    agent {
+        label 'java-slave'
+    }
     stages{
         stage('firststage'){
             steps{
