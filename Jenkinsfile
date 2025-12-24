@@ -8,7 +8,7 @@ pipeline{
             stage('stage env')
             {
                 steps{
-                      echo ("This is stage env")
+                      echo "This is stage env"
                 }
             }
         }
