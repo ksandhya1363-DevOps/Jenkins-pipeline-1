@@ -2,24 +2,35 @@ pipeline{
     agent any
     stages{
         stage('Build'){
-            steps{
-                retry(3){
-                         echo "Welcome to jenkins Pipeline "
-                error "This is a failure"
+                steps{
+                    echo " *** Building the application *** "
                 }
-                echo "After 3 retries"
-               
-            }
-        }
-        stage('Scans'){
-            steps{
-                echo "Executing sonar scans"
-            }
-        }
-        stage('Maven'){
-            steps{
-                echo "Build Maven"
-            }
+                stage('Tests'){
+                    steps{
+                        echo "*** Testing the application ***"
+                    }
+                }
+                stage('DeployToDev'){
+                    steps{
+                        echo " *** Deploying to dev environment ***"
+                    }
+                }
+                stage('DeployToTest'){
+                    steps{
+                        echo " *** Deploying to Test environment ***"
+                    }
+                }stage('DeployToStage'){
+                    steps{
+                        echo " *** Deploying to Stage environment ***"
+                    }
+                }stage('DeployToProd'){
+                    steps{
+                        timeout (time: 5, unit: 'SECONDS')
+                        {
+                            echo " *** Deploying to Production environment ***"
+                        }
+                    }
+                }
         }
     }
 }
