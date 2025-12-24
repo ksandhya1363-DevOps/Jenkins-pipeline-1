@@ -1,11 +1,9 @@
 pipeline{
-    agent{
-        label 'java-slave'
-    }
+    agent any
     stages{
-        stage ('hostname'){
-            steps {
-                sh 'hostname -i'
+        stage('first stage'){
+            steps{
+                echo "Hello this output is from vs code"
             }
         }
     }
