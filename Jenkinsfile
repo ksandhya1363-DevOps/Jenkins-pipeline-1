@@ -1,18 +1,23 @@
 pipeline{
-    agent any
-   /* agent{
+    agent {
         label 'java-slave'
-    }*/
-    stages{
-        stage ('hostname'){
-            steps {
-                sh 'hostname -i'
+    }
+    stages {
+            stage('Build'){
+                steps{
+                    echo "This is a build stage"
+                }
             }
-        }
-        stage('first-stage'){
-            steps{
-                echo "Hi this is vs code"
+            stage('groovycodestage'){
+                steps{
+                    script{
+                        def course = "k8s"
+                        if (course == "k8s")
+                        println("Thanks for enrolling to k8s course")
+                        else
+                        println("Do enrollment to k8s")
+                    }
+                }
             }
-        }
     }
 }
