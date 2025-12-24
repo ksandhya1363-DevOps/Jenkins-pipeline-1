@@ -5,25 +5,28 @@ pipeline{
                 steps{
                     echo " *** Building the application *** "
                 }
-                stage('Tests'){
+            }
+        stage('Tests'){
                     steps{
                         echo "*** Testing the application ***"
                     }
                 }
-                stage('DeployToDev'){
+        stage('DeployToDev'){
                     steps{
                         echo " *** Deploying to dev environment ***"
                     }
                 }
-                stage('DeployToTest'){
+        stage('DeployToTest'){
                     steps{
                         echo " *** Deploying to Test environment ***"
                     }
-                }stage('DeployToStage'){
+                }
+        stage('DeployToStage'){
                     steps{
                         echo " *** Deploying to Stage environment ***"
                     }
-                }stage('DeployToProd'){
+                }
+        stage('DeployToProd'){
                     steps{
                         timeout (time: 5, unit: 'SECONDS')
                         {
