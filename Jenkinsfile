@@ -11,5 +11,10 @@ pipeline{
                 sh 'hostname -i'
             }
         }
+        stage('first-stage'){
+            steps{
+                echo "Hi this is vs code"
+            }
+        }
     }
 }
