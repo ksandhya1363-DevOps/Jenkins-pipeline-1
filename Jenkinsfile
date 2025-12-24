@@ -1,26 +1,21 @@
 pipeline{
     agent any
-    /*agent {
-        label 'java-slave'
-    }*/
-    stages {
-            stage('Build'){
-                steps{
-                    echo "This is a build stage"
-                    sleep 20
-                    echo "Sleep is completed"
-                }
+    stages{
+        stage('Build'){
+            steps{
+                echo "Welcome to jenkins Pipeline "
+                error "This is a failure"
             }
-            stage('groovycodestage'){
-                steps{
-                    script{
-                        def course = "k8si"
-                        if (course == "k8s")
-                        println("Thanks for enrolling to k8s course")
-                        else
-                        println("Do enrollment to k8s")
-                    }
-                }
+        }
+        stage('Scans'){
+            steps{
+                echo "Executing sonar scans"
             }
+        }
+        stage('Maven'){
+            steps{
+                echo "Build Maven"
+            }
+        }
     }
 }
