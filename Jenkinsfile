@@ -4,7 +4,7 @@ pipeline{
         stage('Build'){
             steps{
                 echo "Welcome to jenkins Pipeline "
-                error "This is a failure"
+               // error "This is a failure"
             }
         }
         stage('Scans'){
