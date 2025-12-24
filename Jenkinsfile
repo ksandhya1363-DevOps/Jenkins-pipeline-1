@@ -8,6 +8,7 @@ pipeline{
             steps{
                 echo "Hello this output is from vs code"
             }
+        }
             stage('stageenv')
             {
                 steps{
