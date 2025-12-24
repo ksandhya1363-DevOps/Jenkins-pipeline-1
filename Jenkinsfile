@@ -1,11 +1,11 @@
 pipeline{
     agent any
     stages{
-        stage('first stage'){
+        stage('firststage'){
             steps{
                 echo "Hello this output is from vs code"
             }
-            stage('stage env')
+            stage('stageenv')
             {
                 steps{
                       echo "This is stage env"
