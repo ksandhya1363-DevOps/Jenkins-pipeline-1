@@ -28,10 +28,10 @@ pipeline{
                 }
         stage('DeployToProd'){
                     steps{
-                        timeout (time: 5, unit: 'SECONDS')
+                        timeout (time: 10, unit: 'SECONDS')
                         {
                             echo " *** Deploying to Production environment ***"
-                            sleep 60
+                            sleep 11
                         }
                     }
                 }
