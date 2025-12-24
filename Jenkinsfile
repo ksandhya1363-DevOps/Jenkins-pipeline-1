@@ -31,6 +31,7 @@ pipeline{
                         timeout (time: 5, unit: 'SECONDS')
                         {
                             echo " *** Deploying to Production environment ***"
+                            sleep 60
                         }
                     }
                 }
