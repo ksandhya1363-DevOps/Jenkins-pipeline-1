@@ -7,6 +7,8 @@ pipeline{
             stage('Build'){
                 steps{
                     echo "This is a build stage"
+                    sleep 20
+                    echo "Sleep is completed"
                 }
             }
             stage('groovycodestage'){
