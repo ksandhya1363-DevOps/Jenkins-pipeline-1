@@ -1,26 +1,25 @@
 pipeline{
-    agent{
+    agent {
         label 'java-slave'
     }
-    tools {
-        maven 'Maven_3.8.9'
-    }
-    stages{
-        stage('Maven'){
-            steps{
-                echo "Hello this is Maven version"
-                sh "mvn -version"
+    stages {
+            stage('Build'){
+                steps{
+                    echo "This is a build stage"
+                    sleep 20
+                    echo "Sleep is completed"
+                }
             }
-        }
-        stage('MavenSecondStae'){
-            tools{
-                maven 'Maven_3.9.12'
+            stage('groovycodestage'){
+                steps{
+                    script{
+                        def course = "k8s"
+                        if (course == "k8s")
+                        println("Thanks for enrolling to k8s course")
+                        else
+                        println("Do enrollment to k8s")
+                    }
+                }
             }
-            steps{
-                echo "Hello from second stage"
-                sh "mvn -version"
-            }
-        }
-
     }
 }
