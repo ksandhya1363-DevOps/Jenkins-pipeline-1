@@ -17,8 +17,10 @@ pipeline{
                  }
         }
         stage('SecondStage'){
-            name="Sandhya"
-            course="Azure DevOps"
+            environment{
+                    name="Sandhya"
+                    course="Azure DevOps"
+            }
             steps{
                 echo "**** Building the application in the second stage"
                 echo "**** Welcome ${name} ****"
