@@ -1,6 +1,6 @@
 pipeline{
     agent{
-        label 'java-salve'
+        label 'java-slave'
     }
     stages{
         stage('ProdEnv'){
