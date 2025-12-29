@@ -1,24 +1,30 @@
 pipeline{
-    agent any
-    tools {
-        maven 'Maven_3.8.9'
+    environment{
+        course="Kubernetes"
+        name="siva"
+        cloud ="Azure"
     }
     stages{
-        stage('Maven'){
+        stage('FirstStage'){
+                environment{
+                    cloud="GCP"
+                }
+                steps{
+                    echo "**** Building the application in first stage"
+                    echo "**** Welcome ${name} ****"
+                    echo "**** You are enrolled to ${course}, All the best ${name}****"
+                    echo "**** You are certified in ${cloud} cloud ****"
+                 }
+        }
+        stage('SecondStage'){
+            name="Sandhya"
+            course="Azure DevOps"
             steps{
-                echo "Hello this is Maven version"
-                sh "mvn -version"
+                echo "**** Building the application in the second stage"
+                echo "**** Welcome ${name} ****"
+                echo "**** You are enrolled to ${course}, All the best ${name} ****"
+                echo "**** You are certified in ${cloud}****"
             }
         }
-        stage('MavenSecondStae'){
-            tools{
-                maven 'Maven_3.9.12'
-            }
-            steps{
-                echo "Hello from second stage"
-                sh "mvn -version"
-            }
-        }
-
     }
 }
