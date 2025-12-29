@@ -1,18 +1,26 @@
 pipeline{
-    agent any
-
-    environment{
-        course = "kubernetes"
-        GITHUB_CREDS = credentials('slave_john_credentials')
+    agent{
+        label 'java-slave'
+    }
+    tools {
+        maven 'Maven_3.8.9'
     }
     stages{
-        stage('Build'){
+        stage('Maven'){
             steps{
-            echo "*** My Github credentials are ${GITHUB_CREDS}***"
-            echo "*** My Username is: ${GITHUB_CREDS_USR}***"
-            echo "*** My Password is: ${GTHUB_CREDS_PSW}***"
-
+                echo "Hello this is Maven version"
+                sh "mvn -version"
             }
         }
+        stage('MavenSecondStae'){
+            tools{
+                maven 'Maven_3.9.12'
+            }
+            steps{
+                echo "Hello from second stage"
+                sh "mvn -version"
+            }
+        }
+
     }
 }
